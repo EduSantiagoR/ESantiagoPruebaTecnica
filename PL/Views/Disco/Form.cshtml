@@ -1,0 +1,39 @@
+﻿@model ML.Disco
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Formulario de disco</h2>
+<p>Ingrese todos los datos que se piden</p>
+@using(Html.BeginForm("Form","Disco",FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <body>
+                    <div>
+                        @Html.LabelFor(model => model.Titulo)
+                        @Html.TextBoxFor(model => model.Titulo)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Artista)
+                        @Html.TextBoxFor(model => model.Artista)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.GeneroMusical)
+                        @Html.TextBoxFor(model => model.GeneroMusical)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Duracion)
+                        @Html.TextBoxFor(model => model.Duracion)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Anio)
+                        @Html.TextBoxFor(model => model.Anio)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Distribuidora)
+                        @Html.TextBoxFor(model => model.Distribuidora)
+                    </div>
+                    <button class="btn btn-success" type="submit">Guardar</button>
+                    <a class="btn btn-danger" href="@Url.Action("GetAll","Disco")">Volver</a>
+                </body>
+            }

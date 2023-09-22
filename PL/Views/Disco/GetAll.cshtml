@@ -1,0 +1,43 @@
+﻿@model ML.Disco
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Discos existentes</h2>
+<p>A continuación se muestra una lista de los discos existentes</p>
+<hr />
+<a class="btn btn-success" href="@Url.Action("Form","Disco")">Agregar disco</a>
+<hr />
+@if (Model.Discos != null)
+{
+    <table class="table-bordered table-responsive">
+        <thead class="table-success">
+            <tr>Id</tr>
+            <tr>Titulo</tr>
+            <tr>Artista</tr>
+            <tr>Género musical</tr>
+            <tr>Duración</tr>
+            <tr>Año</tr>
+            <tr>Distribuidora</tr>
+            <tr>Ventas</tr>
+            <tr>Disponilidad</tr>
+        </thead>
+        <tbody>
+            @foreach(ML.Disco disco in Model.Discos)
+                {
+                <tr>
+                    <td>@disco.IdDisco</td>
+                    <td>@disco.Titulo</td>
+                    <td>@disco.Artista</td>
+                    <td>@disco.GeneroMusical</td>
+                    <td>@disco.Duracion</td>
+                    <td>@disco.Anio</td>
+                    <td>@disco.Distribuidora</td>
+                    <td>@disco.Ventas</td>
+                    <td>@disco.Disponibilidad</td>
+                </tr>
+                }
+        </tbody>
+    </table>
+}
